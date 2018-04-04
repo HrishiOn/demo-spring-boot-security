@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection="PersonDB")
+@Document(collection="persons")
 public class Person{
 	@Id
 	private String id;
@@ -16,6 +16,7 @@ public class Person{
 	private String email;
 	private String userName;
 	private String password;
+	private List<Role> roles;
 	
 	public String getEmail() {
 		return email;
@@ -77,9 +78,10 @@ public class Person{
 		person.email = email;
 		person.userName = userName;
 		person.password = password;
+		person.roles = roles;
 	}
 	public Person(String name, int age, List<Cars> car, List<Clothes> shirt, String email, String userName,
-			String password) {
+			String password, List<Role> roles) {
 		this.name = name;
 		this.age = age;
 		this.car = car;
@@ -87,6 +89,13 @@ public class Person{
 		this.email = email;
 		this.userName = userName;
 		this.password = password;
+		this.roles = roles;
+	}
+	public List<Role> getRoles() {
+		return roles;
+	}
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
 	}
 	
 	

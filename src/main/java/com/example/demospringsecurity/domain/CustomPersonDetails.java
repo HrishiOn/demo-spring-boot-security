@@ -20,9 +20,9 @@ public class CustomPersonDetails extends Person implements UserDetails{
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 
-		return getCar().stream()
-			.map(car -> new SimpleGrantedAuthority("name: "+getCar()))
-			.collect(Collectors.toList());
+		return getRoles().stream()
+				.map(role -> new SimpleGrantedAuthority("ROLE"+ role.getRole()))
+				.collect(Collectors.toList());
 	}
 
 	@Override
@@ -38,25 +38,25 @@ public class CustomPersonDetails extends Person implements UserDetails{
 	@Override
 	public boolean isAccountNonExpired() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }

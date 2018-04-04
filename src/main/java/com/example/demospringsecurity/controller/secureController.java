@@ -14,7 +14,7 @@ public class secureController {
 		return "getting all";
 	}
 
-	@PreAuthorize("hasAnyRole('car')")
+	@PreAuthorize("hasAnyRole('ADMIN')")
 	@GetMapping("/secured/all")
 	public String secureAll() {
 		return "secured all";

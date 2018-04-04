@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import com.example.demospringsecurity.domain.Cars;
 import com.example.demospringsecurity.domain.Clothes;
 import com.example.demospringsecurity.domain.Person;
+import com.example.demospringsecurity.domain.Role;
 
 @Component
 public class PersonRepoSeeder implements CommandLineRunner{
@@ -28,7 +29,8 @@ public class PersonRepoSeeder implements CommandLineRunner{
 				Arrays.asList(new Clothes("ZARA", "L")),
 				"hrishi_email@email.com",
 				"hrishi_userName",
-				"hrishi_password");
+				"hrishi_password", 
+				Arrays.asList(new Role("ADMIN", 1)));
 		
 		Person shivani = new Person(
 				"SD",
@@ -39,7 +41,8 @@ public class PersonRepoSeeder implements CommandLineRunner{
 						new Clothes("GAVAKSH","L")),
 				"shivani_email@email.com",
 				"shivani_userName",
-				"shivani_password");
+				"shivani_password",
+				Arrays.asList(new Role("USER", 2)));
 		Person jonny = new Person(
 				"JH",
 				9,
@@ -48,7 +51,8 @@ public class PersonRepoSeeder implements CommandLineRunner{
 						new Clothes("GAVAKSH","L")),
 				"johnny_email@email.com",
 				"johnny_userName",
-				"johnny_password");
+				"johnny_password",
+				Arrays.asList(new Role("USER", 3)));
 		//Adding hotels to database
 		this.personRepo.deleteAll();
 		//Populate hotels at startup
